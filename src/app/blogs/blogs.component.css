@@ -1,0 +1,17 @@
+.card {
+  border: 1px solid;
+  margin: 10px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: 1px solid red;
+  padding: 10px 0;
+}
+
+.content {
+  border: 1px solid blue;
+  text-indent: 50px;
+  text-align: justify;
+}

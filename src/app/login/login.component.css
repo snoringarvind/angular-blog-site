@@ -1,0 +1,46 @@
+.login {
+  border: 1px solid;
+  width: 60vw;
+  margin: 10% auto 0 auto;
+}
+
+.form-group {
+  border: 1px solid red;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-size: 1.5rem;
+}
+
+input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 3px 8px;
+}
+
+.login-btn,
+.signup-btn {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.3rem;
+  margin: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+}
+
+.login-btn {
+  background-color: blue;
+}
+.signup-btn {
+  background-color: green;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+  opacity: 0.6;
+  transform: scale(1.02);
+}

@@ -1,0 +1,61 @@
+<div *ngIf="blog">
+  <div class="buttons">
+    <button class="update-btn" routerLink="/blog/{{ blog._id }}/update">
+      Update
+    </button>
+    <button class="delete-btn" (click)="deleteBlog()">Delete</button>
+  </div>
+  <div class="blog">
+    <div class="title">{{ blog.title }}</div>
+    <div class="content">{{ blog.content }}</div>
+  </div>
+  <div class="errors" *ngIf="blog_errors.length > 0">
+    <ul>
+      <li *ngFor="let error of blog_errors; let index = index">
+        {{
+          !blog_errors[index].isAuthenticated
+            ? "you are not authenticated to visit this route"
+            : blog_errors[index].msg
+        }}
+      </li>
+    </ul>
+  </div>
+  <div class="comment-form">
+    <div class="form-group">
+      <input
+        id="comment"
+        name="comment"
+        placeholder="Write your comment here..."
+        [(ngModel)]="commentObj.comment"
+      />
+      <button class="comment-btn" type="button" (click)="postComment()">
+        Comment
+      </button>
+    </div>
+  </div>
+  <div class="errors" *ngIf="comment_errors.length > 0">
+    <ul>
+      <li *ngFor="let error of comment_errors; let index = index">
+        {{ comment_errors[index].msg }}
+      </li>
+    </ul>
+  </div>
+  <div class="comments" *ngIf="this.comment_list.length > 0">
+    <div
+      class="comment-card"
+      *ngFor="let comment of comment_list; let index = index"
+    >
+      <div>
+        <div class="user-name">{{ comment.user.fname }}</div>
+        <div class="comment">{{ comment.comment }}</div>
+      </div>
+      <div
+        class="comment-dlt-btn"
+        (click)="commentDelete(index, comment._id)"
+        *ngIf="this.local_isAuth"
+      >
+        X
+      </div>
+    </div>
+  </div>
+</div>
