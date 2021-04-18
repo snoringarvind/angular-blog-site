@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BlogCreateComponent } from './blog-create/blog-create.component';
+import { UseObserverDirective } from './use-observer.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
     LoginComponent,
     SignupComponent,
     BlogCreateComponent,
+    UseObserverDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

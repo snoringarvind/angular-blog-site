@@ -1,7 +1,9 @@
 <nav>
   <div (click)="blogClick()" [class.active]="isActive('/blogs')">Blogs</div>
 
-  <div (click)="createClick()">Create</div>
+  <div (click)="createClick()" [class.active]="isActive('/blog/create')">
+    Create
+  </div>
 
   <div (click)="logClick()" [class.active]="isActive('/blog/login')">
     {{ this.userService.isAuth ? "Logout" : "Login" }}

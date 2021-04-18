@@ -1,5 +1,9 @@
 <div class="blogs">
-  <div class="card" *ngFor="let blog of blogs; let index = index">
+  <div
+    class="card"
+    *ngFor="let blog of blogs; let index = index"
+    id="blog-card"
+  >
     <a (click)="blogDetail(blog, index)">
       <div class="title">{{ blog.title }}</div>
       <div class="content">{{ blog.content }}</div>

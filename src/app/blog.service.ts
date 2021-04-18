@@ -111,7 +111,28 @@ export class BlogService {
         tap((_) => console.log('deleting comment')),
         catchError(this.handleError<any>('deleting comment'))
       );
+  }
 
-    return of();
+  useIntersection({
+    target,
+    onIntersect,
+    threshold,
+    rootMargin,
+  }: any): Observable<any> {
+    if (target) {
+      console.log('hello');
+      const Observer = new IntersectionObserver(onIntersect, {
+        rootMargin: rootMargin,
+        threshold: threshold,
+      });
+
+      let current = target;
+
+      Observer.observe(current);
+
+      return of();
+    } else {
+      return of();
+    }
   }
 }

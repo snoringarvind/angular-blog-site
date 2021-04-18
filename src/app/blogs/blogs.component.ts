@@ -8,6 +8,8 @@ import { browser } from 'protractor';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { state } from '@angular/animations';
+import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-blogs',
@@ -23,14 +25,40 @@ export class BlogsComponent implements OnInit {
 
   blogs: Blog[] = [];
 
+  threshold: any = 1;
+  rootMargin: any = '0px';
+
+  target: any = document.getElementById('blog-card');
+
   ngOnInit() {
     console.log(this.userService.isAuth);
     this.blogs = this.blogService.blogs;
+
     if (this.blogService.blogs.length === 0) {
       console.log('hello');
       this.getBlogs();
     }
     console.log(typeof Observable);
+
+    console.log(this.target);
+    this.blogService
+      .useIntersection({
+        target: this.target,
+        onIntersect: ([{ isIntersecting }]: any, observerElement: any) => {
+          if (isIntersecting) {
+            console.log('hey broooooooooooooooooooo');
+          }
+          console.log(this.target);
+          console.log(isIntersecting, observerElement);
+        },
+        threshold: this.threshold,
+        rootMargin: this.rootMargin,
+      })
+      .subscribe((res) => console.log(res));
+  }
+
+  cb() {
+    console.log('mannnn');
   }
 
   getBlogs(): void {
